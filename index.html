@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+
+<style>
+    body, html{
+        max-width: 100%;
+        height:100%;
+        /*overflow-x: hidden;*/
+    }
+
+
+    body{
+        background-color: #000000;
+        width:100%;
+
+    }
+    .fff{
+        background-color: #bf0500;
+        height: 500px;
+        -moz-user-select: none;
+        -o-user-select:none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: relative;
+    }
+    .monster{
+        position: absolute;
+        bottom: 0;
+        max-height: 350px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .logo{
+        position: absolute;
+        top: 40px;
+        height: 82px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    canvas {
+        display: block;
+        vertical-align: bottom;
+    }
+
+    /* ---- particles.js container ---- */
+
+    #particles-js {
+        /*position: absolute;*/
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+    .bl{
+        background-color: white;
+        height: 200px;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+
+
+
+
+    .scene1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .viewer_left {
+        height: 318px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 487px;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        /*margin-bottom: 110px;*/
+    }
+
+
+
+
+    .viewer_right {
+        height: 370px;
+        margin-left: 220px;
+        margin-right: auto;
+        max-width: 161px;
+        background-repeat: no-repeat;
+        /*background-position: 0 50%;*/
+        background-size: contain;
+    }
+
+
+
+    .gf_back{
+        background-image: url(img/gf3.jpg);
+        background-color: #ED1A3C;
+        background-size: 900px;
+        background-position-y: center;
+        background-position-x: center;
+    }
+    .lem_back{
+        background-image: url(img/lem.jpg);
+        background-color: #eabb38;
+        background-size: 900px;
+        background-position-y: center;
+        background-position-x: center;
+    }
+    .bcr_back{
+        background-image: url(img/bcr.jpg);
+        background-color: #eabb38;
+        background-size: 900px;
+        background-position-y: center;
+        background-position-x: center;
+    }
+
+
+
+    .gf{
+        background-image: url(img/can1.png);
+    }
+    .li{
+        background-image: url(img/sq/32.png);
+    }
+
+    .sort_left{
+        color: white;
+        /*position: absolute;*/
+        /*left: 0px;*/
+        /*right: 250px;*/
+        /*margin-top: 100px;*/
+    }
+    .sort_right{
+        color: white;
+        position: absolute;
+        left: 250px;
+        right: 0px;
+        margin-top: 100px;
+    }
+
+
+    .can{
+        width: 150px;
+    }
+
+
+    .block{
+        max-width: 900px;
+        margin: 0px auto;
+        padding: 9px 0px 7px;
+    }
+    .block2{
+        max-width: 600px;
+        margin: 0px auto;
+        padding: 9px 0px 7px;
+    }
+
+
+    .long{
+        height: 90px;
+    }
+
+
+
+
+
+
+    .scene {
+        height: 100%;
+        width: 100%;
+    }
+
+    .section {
+        /*height: 50%;*/
+    }
+
+    .viewer {
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 322px;
+        width: 100%;
+        background-image: url(img/b_big.jpg);
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+    }
+
+    .scene2 {
+        height: 920px;
+        width: 100%;
+    }
+    .viewer2 {
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 482px;
+        width: 100%;
+        background-image: url(img/box1.jpg);
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+    }
+
+
+    .order_block{
+
+        text-align: center;
+        color: white;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .order_button{
+        font-size: 1.4rem;
+        border-radius: 2.25rem;
+    }
+    .legal{
+        text-align: center;
+        color: #363636;
+    }
+    .wholesale{
+        text-align: center;
+        color: #aaaaaa;
+    }
+
+    .about{
+        color: #fafafa;
+        text-align: center;
+        background-color: #000000;
+    }
+</style>
+
+
+
+<section class="scene section" id="sticky">
+    <div class="viewer"></div>
+</section>
+
+
+
+<section class="scene1 gf_back l1" id="sticky" >
+    <div class="block">
+        <img class="can" id="can1" src="img/gfc.png">
+        <div class="sort_left">
+            <h1>Грейпфрут</h1>
+            <p>Освежающий, яркий вкус грейпфрута</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="scene1 lem_back l2" id="sticky" >
+    <div class="block">
+        <img class="can" id="can1" src="img/lemon.png">
+
+        <div class="sort_left">
+            <h1>Лимон + имбирь</h1>
+            <p>Освежающий, яркий вкус лимона и имбиря</p>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="scene1 bcr_back l3" id="sticky" >
+    <div class="block">
+        <img class="can" id="can2" src="img/bcm.png">
+
+        <div class="sort_left">
+            <h1>Чёрная смородина + малина</h1>
+            <p>Освежающий, яркий вкус чёрной смородины и малины</p>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="qqq" >
+    <div class="block2">
+        <h1>Лимонады</h1>
+
+        <p>🍓🍓🍓</p>
+        <p>Во всех вкусах лимонадов мы используем натуральные фрукты, фруктовые пюре и соки.</p>
+        <p>🍌🍌🍌</p>
+        <p>Мы не используем искуственные ароматизаторы и красители. Цвет и вкус лимонадов — это цвет и вкус натуральных ингредиентов.</p>
+        <p>🥭🥭🥭</p>
+        <p>Еще добавляем немного сахара — для того, чтобы уравновесить и сбалансировать кислотность фруктов и ягод. И потому, что так получается вкуснее. Простите, диетологи :)</p>
+        <p>🍍🍍🍍</p>
+        <p>В составе лимонадов указан консервант — сорбат калия (Е202). Это белый порошок без запаха, который не влияет на вкусовые характеристики и не вреден для организма. Его единственная задача — подавлять микроорганизмы (бактерии и дрожжи), которые содержатся во фруктах и соках, не проходящих термическую обработку. Без этого ни один натуральный состав не проживет и пары недель без изменения вкуса. А мы хотим, чтобы вы наслаждались именно той вкусовой палитрой, которая была задумана.</p>
+
+    </div>
+</section>
+
+<section class="scene2 section" id="sticky">
+    <div class="viewer2"></div>
+
+    <div class="order_block">
+        <p>Коробочка — 3 сорта по 2 банки</p>
+        <h4>Заказать</h4>
+        <br>
+        <button class="btn btn-primary order_button">OZON</button>
+        <button class="btn btn-primary order_button">Wildberries</button>
+        <button class="btn btn-primary order_button">Яндекс</button>
+    </div>
+</section>
+
+
+<div class="long"></div>
+
+
+<div class="wholesale">Купить оптом: +7 (495) 444-07-34</div>
+<div class="legal">ИП Максимов Игорь Сергеевич ИНН 332707201175</div>
+
+
+<script>
+
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    var frame_count  = 30,
+        offset_value = 322;
+
+
+    gsap.to(".viewer", {
+        backgroundPosition: (-offset_value * frame_count) - 15 + "px 50%",
+        ease: "steps(" + frame_count + ")", // use a stepped ease for the sprite sheet
+        scrollTrigger: {
+            trigger: ".scene",
+            start: "top top",
+            end: "+=" + (frame_count * offset_value/6),
+            pin: true,
+            scrub: true
+        }
+    });
+
+    var frame_count2  = 35,
+        offset_value2 = 482;
+
+    gsap.to(".viewer2", {
+        backgroundPosition: (-offset_value2 * frame_count2) + "px 50%",
+        ease: "steps(" + frame_count2 + ")", // use a stepped ease for the sprite sheet
+        scrollTrigger: {
+            trigger: ".viewer2",
+            start: "top center",
+            end: "+=500",
+
+            // pin: "top top",
+            scrub: true,
+            // markers:true
+        }
+    });
+
+    gsap.to(".order_block", {
+        marginTop: (-frame_count2 * 7 ) + "px",
+        ease: "steps(" + frame_count2 + ")", // use a stepped ease for the sprite sheet
+        scrollTrigger: {
+            trigger: ".viewer2",
+            start: "50 center",
+            end: "+=350",
+            // pin: "top top",
+            scrub: true,
+            //markers:true
+        }
+    });
+
+</script>
